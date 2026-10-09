@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "alexpomsft.keylane",
+  "name": "Keylane",
+  "version": "1.0.0",
+  "author": "alexpomsft",
+  "license": "MIT",
+  "description": "Bar indicator for the Keylane password manager: shows whether your KeePass vault is locked, opens the launcher, and locks with a click.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Widget.qml"
+  },
+  "barWidget": {
+    "displayName": "Keylane",
+    "description": "Vault lock state; click to search, middle-click for the manager, right-click to lock.",
+    "category": "Status",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "refreshIntervalSec": 3,
+      "showWhenStopped": true
+    },
+    "schema": [
+      {
+        "key": "refreshIntervalSec",
+        "type": "integer",
+        "label": "Refresh interval (seconds)",
+        "description": "How often to ask Keylane for its lock state.",
+        "min": 1,
+        "max": 60,
+        "step": 1,
+        "defaultValue": 3
+      },
+      {
+        "key": "showWhenStopped",
+        "type": "boolean",
+        "label": "Show when Keylane is not running",
+        "description": "Keep a dimmed icon in the bar (click starts Keylane) instead of hiding it.",
+        "defaultValue": true
+      }
+    ]
+  }
+}
